@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>常見問題 Q&A</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root { --nav-height: 160px; }
+
+    html, body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Microsoft JhengHei', 'PingFang TC', 'Noto Sans TC', sans-serif;
+      background: linear-gradient(135deg, #F5F0EB 0%, #E8E0D5 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(245, 240, 235, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(139,115,85,0.15);
+      z-index: 1000;
+      padding: 0;
+    }
+
+    .title-header {
+      width: 100%;
+      margin: 0;
+      padding: 28px 24px;
+      text-align: center;
+      background: linear-gradient(135deg,#E8DDD0 0%, #D4C4B0 100%);
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      padding: 10px 20px;
+      background: #E8DDD0;
+      border: none;
+      color: #6B5744;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .nav-item:hover { transform: translateY(-2px); background:#D4C4B0; color:#5C4A3A; }
+    .nav-item.active {
+      background: linear-gradient(135deg,#A0826D 0%, #8B6F47 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(160,130,109,0.35);
+    }
+
+    .main-app-container { width: 100%; padding-bottom: 60px; }
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #6B5744;
+      margin: 0;
+      letter-spacing: 3px;
+    }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 160px 24px 60px 24px;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn .45s ease; }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(8px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    .qa-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 3px 12px rgba(92,74,58,0.10);
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+
+    .qa-card:before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg,#A0826D 0%, #8B6F47 100%);
+    }
+
+    .qa-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(92,74,58,0.12); }
+
+    .card-header { display:flex; align-items:center; gap:12px; margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid #EFE6DB; }
+    .card-header h2 { margin:0; font-size:16.5px; font-weight:600; color:#5C4A3A; line-height:1.2; }
+    .card-content ul { margin:8px 0 0 0; padding:0; list-style:none; }
+    .card-content li { padding:4px 0; color:#7A6651; font-size:14px; line-height:1.55; }
+
+    @media (max-width:768px) {
+      .title-header { padding:22px 16px; }
+      .nav-content { padding:12px 16px 14px 16px; gap:6px; }
+      .nav-item { padding:10px 14px; font-size:13px; }
+      .content-wrapper { padding: 140px 16px 40px 16px; }
+      .card-header h2 { font-size:15px; }
+      .card-content li { font-size:14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" id="site-navbar">
+    <div class="title-header">
+      <h1 class="page-title">常見問題 Q&amp;A</h1>
+    </div>
+
+    <div class="nav-content" role="tablist" aria-label="FAQ 分類">
+      <button class="nav-item active" data-tab="tab1" role="tab" aria-selected="true">💆🏻‍♀️ 育髮須知</button>
+      <button class="nav-item" data-tab="tab2" role="tab" aria-selected="false">📅 預約須知</button>
+    </div>
+  </nav>
+
+  <div class="main-app-container">
+    <div class="content-wrapper" id="content-wrapper">
+
+      <!-- Tab 1 -->
+      <div class="tab-content active" id="tab1" role="tabpanel">
+        <div class="qa-card">
+          <div class="card-header"><h2>💆🏻‍♀️ 育髮的原理是什麼？</h2></div>
+          <div class="card-content">
+            <ul>
+              <li>⏩️ 育髮是一種頭皮保養型調理服務，透過專業儀器協助代謝老廢角質，並導入營養精華，讓頭皮維持潔淨、穩定的狀態，使頭髮自然呈現豐盈感。此服務並非醫療行為，操作無侵入性，不使用藥物、激素，也不是紋繡或上色，而是需要透過時間與定期保養，逐步調理頭皮環境。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <div class="card-header"><h2>🫧 育髮只做一次會有效嗎？</h2></div>
+          <div class="card-content">
+            <ul>
+              <li>⏩️ 單次體驗可感受到頭皮清爽與舒適度提升，而頭皮與髮況的整體表現，前期每月保養，幫頭髮恢復生長期。穩定後可調整頻率，持續護理才能有顯著效果。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <div class="card-header"><h2>⏳ 育髮調理多久做一次呢？</h2></div>
+          <div class="card-content">
+            <ul>
+              <li>⏩️ 初期每月1次，完整管理是3~6次，可另外參考育髮包堂方案。</li>
+              <li>一般建議：</li>
+              <li>• 初期調理階段：每月一次，協助頭皮維持潔淨與穩定狀態，改善毛髮環境、奠定健康基礎。</li>
+              <li>• 日常保養階段：2～5個月一次，作為定期頭皮管理，維持頭皮最佳狀態。</li>
+              <li>我們建議依實際頭皮狀況，由現場評估後調整適合的保養頻率，不追求快速改變，而是陪伴長期照顧。</li>
+            </ul>
+          </div>
+        </div>
+      </div> <!-- 結束 Tab 1 -->
+
+      <!-- Tab 2 -->
+      <div class="tab-content" id="tab2" role="tabpanel" hidden>
+        <div class="qa-card">
+          <div class="card-header"><h2>👥 挑選禮服可以帶幾位親友？</h2></div>
+          <div class="card-content">
+            <ul>
+              <li>✅ 因空間動線考量，包含新人最多 4 位入店。建議帶 1–2 位最了解您風格、能給予協助的親友，能讓挑選過程更順暢。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <div class="card-header"><h2>⏰ 挑禮限制時間與件數嗎？</h2></div>
+          <div class="card-content">
+            <ul>
+              <li>✅ 試穿時間以 1–2 小時為主，依您想租的套數彈性調整。建議先了解自己喜歡的風格，縮小範圍會挑得更順利。</li>
+            </ul>
+          </div>
+        </div>
+      </div> <!-- 結束 Tab 2 -->
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const navItems = Array.from(document.querySelectorAll('.nav-item'));
+      const tabContents = Array.from(document.querySelectorAll('.tab-content'));
+      const navbar = document.getElementById('site-navbar');
+      const contentWrapper = document.getElementById('content-wrapper');
+
+      function adjustContentOffset(){
+        const offset = navbar.getBoundingClientRect().height + 8;
+        contentWrapper.style.paddingTop = offset + 'px';
+      }
+
+      adjustContentOffset();
+      window.addEventListener('resize', adjustContentOffset);
+
+      function activateTab(tabId, clickedBtn){
+        tabContents.forEach(tc => {
+          tc.classList.remove('active');
+          tc.hidden = true;
+        });
+
+        navItems.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected','false');
+        });
+
+        const target = document.getElementById(tabId);
+        if(!target) return;
+
+        target.classList.add('active');
+        target.hidden = false;
+
+        if(clickedBtn){
+          clickedBtn.classList.add('active');
+          clickedBtn.setAttribute('aria-selected','true');
+        } else {
+          const btn = navItems.find(b => b.dataset.tab === tabId);
+          if(btn){ btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+        }
+
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const navHeight = navbar.getBoundingClientRect().height;
+        const targetY = Math.max(0, scrollTop + rect.top - navHeight - 12);
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+
+      navItems.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.getAttribute('data-tab');
+          activateTab(tabId, btn);
+          history.replaceState(null, '', '#' + tabId);
+        });
+      });
+
+      window.addEventListener('load', () => {
+        const hash = (location.hash || '').replace('#','');
+        if(hash && document.getElementById(hash)){
+          activateTab(hash);
+          return;
+        }
+        activateTab('tab1');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        const activeIndex = navItems.findIndex(b => b.classList.contains('active'));
+        if(e.key === 'ArrowRight'){
+          const next = navItems[(activeIndex + 1) % navItems.length];
+          next && next.focus() && next.click();
+        } else if(e.key === 'ArrowLeft'){
+          const prev = navItems[(activeIndex - 1 + navItems.length) % navItems.length];
+          prev && prev.focus() && prev.click();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
